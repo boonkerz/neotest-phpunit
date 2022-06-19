@@ -98,9 +98,10 @@ function adapter.discover_positions(path)
   
     ((class_declaration
       body: (declaration_list
-          (comment) @comment (#match? @comment "@test")
+          (comment) @comment (#match? @comment "@test") .
             (method_declaration
-              (name) @test.name)
+              (name) @test.name
+            )
         )
     ))
     @test.definition
