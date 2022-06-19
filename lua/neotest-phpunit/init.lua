@@ -95,6 +95,15 @@ function adapter.discover_positions(path)
         name: (name) @test.name
         (#match? @test.name "test"))
         @test.definition
+  
+    ((class_declaration
+      body: (declaration_list
+          (comment) @comment (#match? @comment "@test")
+            (method_declaration
+              (name) @test.name)
+        )
+    ))
+    @test.definition
 
     (namespace_definition
         name: (namespace_name) @namespace.name)
